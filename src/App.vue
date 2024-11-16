@@ -1,13 +1,6 @@
 <template>
   <div class="home">
-
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link v-for="destination in destinations" :to="destination.slug" :key="destination.id">
-        {{ destination.name }}
-      </router-link>
-    </div>
+    <the-navigation></the-navigation>
     <div class="container">
       <router-view></router-view>
     </div>
@@ -15,11 +8,7 @@
 </template>
 
 <script setup>
-import sourceData from '@/data.json'
-import { ref } from 'vue'
-
-const destinations = ref(sourceData.destinations);
-
+import TheNavigation from '@/components/TheNavigation.vue'
 </script>
 
 

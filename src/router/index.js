@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  linkActiveClass: 'vue-school-active-link',
   routes: [
     {
       path: '/',
@@ -28,6 +29,11 @@ const router = createRouter({
       path: '/panama',    
       name: 'panama',
       component: () => import('../views/PanamaView.vue'),
+    },
+    {
+      path: '/destinations/:destination',
+      name: 'destination.show',
+      component: () => import('../views/DestinationShowView.vue'),
     }
   ],
 })
