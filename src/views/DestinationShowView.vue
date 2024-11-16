@@ -6,22 +6,31 @@
             <p>{{ destination.description }}</p>
         </div>
     </section>
+
+    <section class="experiences">
+        <h2>Top Experiences in {{ destination.name }}</h2>
+        <div class="cards">
+            <router-link v-for="experience in destination.experiences" :key="experience.slug"
+                :to="{ name: 'experience.show', params: { experienceSlug: experience.slug } }">
+                <experience-card :experience="experience"></experience-card>
+            </router-link>
+        </div>
+        <router-view></router-view>
+    </section>
 </template>
 
 <script setup>
+import sourceData from '@/data.json'
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
+import ExperienceCard from '@/components/ExperienceCard.vue'
+
 const route = useRoute();
-const destination = ref(null);
+const destinations = ref(sourceData.destinations);
 
-const initData = async () => {
-    const response = await fetch(`https://travel-dummy-api.netlify.app/${route.params.slug}`);
-    destination.value = await response.json();
-};
+const destination = computed(() => destinations.value.find(destination => destination.slug === route.params.slug));
 
-onMounted(initData);
 
-watch(() => route.params.slug, initData);
 
 </script>
