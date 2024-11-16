@@ -1,8 +1,9 @@
 <template>
     <div id="nav">
-        <router-link to="/">Home</router-link>
+        <router-link id="logo" to="/">Vue School Travel App</router-link>
         <router-link v-for="destination in destinations"
-            :to="{ name: 'destination.show', params: { destination: destination.id } }" :key="destination.id">
+            :to="{ name: 'destination.show', params: { destination: destination.id, slug: destination.slug } }"
+            :key="destination.id">
             {{ destination.name }}
         </router-link>
     </div>
