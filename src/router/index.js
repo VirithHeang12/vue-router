@@ -10,10 +10,25 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue'),
+      path: '/brazil',
+      name: 'brazil',
+      component: () => import('../views/BrazilView.vue'),
     },
+    {
+      path: '/jamaica',
+      name: 'jamaica',
+      component: () => import('../views/JamaicaView.vue'),
+    },
+    {
+      path: '/hawaii',
+      name: 'hawaii',
+      component: () => import('../views/HawaiiView.vue'),
+    },
+    {
+      path: '/panama',    
+      name: 'panama',
+      component: () => import('../views/PanamaView.vue'),
+    }
   ],
 })
 
