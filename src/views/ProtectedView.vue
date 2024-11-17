@@ -5,6 +5,9 @@
             <p>Welcome to the protected area, {{ user }}</p>
         </div>
         <button @click="logout">Logout</button>
+        <router-link :to="{ name: 'invoices' }">
+            <button>Invoices</button>
+        </router-link>
     </div>
 </template>
 
